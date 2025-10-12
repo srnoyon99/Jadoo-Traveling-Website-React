@@ -26,6 +26,7 @@
   --color-h3: #14183E;
   --color-black:#080809;
   --color-information-button: linear-gradient(#FF946D, #FF7D68);
+  --color-linear-login: linear-gradient(90deg, #6366F1 0%, #8B5CF6 50%, #D946EF 100%);
   /* COLOUR */
 
   /* CONTAINER */
@@ -169,3 +170,10 @@ button {
         outline: none !important; 
         outline-offset: 0px !important ;
     }
+
+    /* .journey {
+     background: linear-gradient(90deg, #6366F1 0%, #8B5CF6 50%, #D946EF 100%);
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+     background-clip: text;
+} */

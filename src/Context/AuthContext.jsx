@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut, GoogleAuthProvider, FacebookAuthProvider, signInAnonymously, } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut, GoogleAuthProvider, FacebookAuthProvider, signInAnonymously, sendPasswordResetEmail, updateProfile, } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../service/firebase/firebase.config";
 
@@ -10,8 +10,10 @@ export const AuthContext = createContext({
      logout: () => { },
      gmailLogin: () => { },
      facebookLogin: () => { },
-     anonymouslyLogin: () => {},
-     getUserInfo: () => { }
+     anonymouslyLogin: () => { },
+     getUserInfo: () => { },
+     updateUserInfo: () => { },
+     resetPassword: () => { },
 })
 
 const AuthProvider = ({ children }) => {
@@ -42,12 +44,12 @@ const AuthProvider = ({ children }) => {
 
                          }).catch((err) => {
                               console.log("Verification Faild");
-
                          })
                })
-
      }
+
      const login = (email, password) => {
+
           signInWithEmailAndPassword(auth, email, password)
                .then((userCredential) => {
                     // Signed in 
@@ -58,11 +60,7 @@ const AuthProvider = ({ children }) => {
                .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
-                    console.log(errorMessage);
-
                });
-
-
      }
 
      const logout = () => {
@@ -136,13 +134,25 @@ const AuthProvider = ({ children }) => {
                });
      }
 
+     const updateUserInfo = ( name, photo ) => {
+
+          updateProfile(auth.currentUser, {
+               displayName: name , photoURL: photo
+          }).then(() => {
+               // Profile updated!
+               console.log("User Update Done");
+          }).catch((error) => {
+               // An error occurred
+               console.log( error.message );
+          });
+     }
 
      const getUserInfo = () => {
 
           const user = auth.currentUser;
-          if (user !== null) {
+          if (auth !== null) {
                // The user object has basic properties such as display name, email, etc.
-               const displayName = user.displayName = email.slice(0, 1);
+               const displayName = user.displayName;
                const email = user.email;
                const photoURL = user.photoURL;
                const emailVerified = user.emailVerified;
@@ -154,7 +164,22 @@ const AuthProvider = ({ children }) => {
           }
      }
 
-     const Value = { currentUser, loading, signup, login, logout, gmailLogin, facebookLogin, anonymouslyLogin ,getUserInfo }
+     const resetPassword = (email) => {
+          sendPasswordResetEmail(auth, email)
+               .then(() => {
+                    // Password reset email sent!
+                    // ..
+                    alert("Password reset email sent!")
+               })
+               .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    alert(errorMessage)
+                    // ..
+               });
+     }
+
+     const Value = { currentUser, loading, signup, login, logout, gmailLogin, facebookLogin, anonymouslyLogin, getUserInfo, resetPassword, updateUserInfo }
 
      return (
           <AuthContext.Provider value={Value} >

@@ -4,13 +4,13 @@ import { Link } from 'react-router';
 import { AnonymouslyLogo, MainIcon, PlainLogin1, PlaneLogin2, TravellerBgLogin, TravellerLogin } from '../../ImportImages/ImportImages';
 import { useAuth } from '../../Hooks/useAuth';
 
+
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
-
-  const { login, gmailLogin, facebookLogin , anonymouslyLogin , currentUser } = useAuth();
+  const { login, gmailLogin, facebookLogin , anonymouslyLogin , resetPassword , currentUser } = useAuth();
 
   const [userData, setUserData] = useState({
     email: "",
@@ -38,6 +38,12 @@ export default function Login() {
       handleLogin();
     }
   };
+
+  const [ forgetPassword, setForgetPassword ] = useState(false);
+
+  const handleForgetPassword = () => {
+    setForgetPassword(!forgetPassword)
+  }
 
   return (
     <div className="min-h-screen  grid grid-cols-2 items-center ">
@@ -74,7 +80,7 @@ export default function Login() {
           <h1 className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-200 to-purple-200 mb-4 tracking-widest leading-tight px-4">
             WELCOME BACK
           </h1>
-          <p className="text-gray-400 text-lg">Sign in to continue your journey</p>
+          <p className=" text-gray-400 text-lg">Sign in to continue your journey</p>
         </div>
 
         {/* Social Login Buttons */}
@@ -180,9 +186,25 @@ export default function Login() {
               />
               <span className="ml-2 text-sm text-gray-400 group-hover:text-gray-300 transition-colors">Remember me</span>
             </label>
-            <button className="text-sm text-blue-400 hover:text-blue-300 transition-colors duration-300">
+             
+             { forgetPassword ? <ForgetPassword handleForgetPassword={handleForgetPassword} resetPassword={resetPassword} /> :
+             <>
+            <label className="flex items-center cursor-pointer group">
+              <input
+                type='button'
+                name='button'
+                id='button'
+                onSubmit={handleLogin}
+              />
+                 <button 
+                 onClick={handleForgetPassword}
+                 className="text-sm text-blue-400 hover:text-blue-300 transition-colors duration-300">
               Forgot password?
             </button>
+            </label>
+             </>
+             }
+         
           </div>
 
           {/* Sign In Button */}
@@ -217,4 +239,37 @@ export default function Login() {
       </div>
     </div>
   );
+}
+
+const ForgetPassword = ({handleForgetPassword, resetPassword }) => {
+
+  const [email, setEmail ] = useState('');
+  const handleChange = (e) => {
+    setEmail(e.target.value)
+  }
+  const handleSetPassword = () => {
+    resetPassword(email)
+  }
+
+  return (
+    <div>
+
+      <div className="relative">
+              <Mail color="#ffffff" className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 w-5 h-5" />
+              <input 
+              onChange={(e) => { handleChange(e), setEmail(e.target.value) }}
+                name='email'
+                type="email"
+                className="w-[275px] pl-10 hover:pl-5 py-3 bg-gray-800/50 border border-gray-600/50 rounded-xl text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-300 backdrop-blur-sm hover:bg-gray-800/70"
+                placeholder="Enter your email"
+              />
+            </div>
+
+            <div className=' mt-3 ' >
+              <button onClick={handleSetPassword} className='btn bg-green-600 border-none shadow-none ' > Reset Password </button>
+            <button onClick={handleForgetPassword} className=' btn btn-ghost text-red-600 hover:bg-red-500 hover:text-yellow-50 hover:border-none hover:shadow-none ml-3 ' > Close </button>
+            </div>
+
+    </div>
+  )
 }

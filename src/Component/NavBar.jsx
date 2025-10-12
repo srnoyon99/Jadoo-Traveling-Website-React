@@ -6,6 +6,7 @@ import SettingsDropdown from "../ComponentPages/SettingsDropdown"
 import TheamButton from "../ComponentPages/TheamButton"
 import NavSearch from "../ComponentPages/NavSearch"
 import { useAuth } from "../Hooks/useAuth"
+import LogoutButton from "../ComponentPages/LogoutButton"
 
 const NavBar = () => {
   const { currentUser } = useAuth()
@@ -26,13 +27,18 @@ const NavBar = () => {
     }else {
       navbar.current.classList.remove("stickyNavbar")
     }
-    console.log(value);
   })
+  
+  const SocialMedia = currentUser?.providerData[0]?.providerId === "facebook.com" || currentUser?.providerData[0]?.providerId === "google.com" || currentUser?.providerData[0]?.providerId === "password"
+  const Anonymou =  currentUser?.isAnonymous;
   
   return (
     <nav className=" z-50 fixed w-full " ref={navbar} >
 
-     <div className="navbar container pt-[35px] pb-[22px] ">
+  { !SocialMedia ? (<>
+   
+  </>) : (<>
+       <div className="navbar container pt-[35px] pb-[22px] ">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -62,19 +68,6 @@ const NavBar = () => {
     </ul>
   </div>
 
-  { !currentUser? (<>
-<div className=" flex items-center justify-center gap-[20px] ml-[260px] " >
-   <Link to={"/auth/login"} > <Button btnStyle="default"> Login </Button> </Link>
-  <Link to={"/auth/signup"} ><Button btnStyle="secondery"> Sign Up </Button></Link>
- </div>
-
-  <select defaultValue="Pick a font " className="select-ghost ml-[42px] outline-none text-[17px] font-bold ">
-  
-  <option >EN</option>
-  <option >BN</option>
-</select>
-
-  </>) : ( <>
   <div className="navbar-end flex items-center gap-[45px] ">
     <div className=" active:outline-none ">
       <NavSearch/>
@@ -85,11 +78,38 @@ const NavBar = () => {
     <button className=" z-40 " > <SettingsDropdown/> </button>
   </div>
   </div>
-  </> ) }
-
-
 
 </div>
+  </>) }
+
+  { !Anonymou ? (<>
+  </>) : (
+  <>
+  <div className="navbar space-x-15 container pt-[35px] pb-[22px] ">
+  <div className="navbar-start">
+    <div className="dropdown">
+      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" className=" h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+      </div>
+    </div>
+    <NavLink className=" text-[17px] text-p " to={"/"} > <img src={MainIcon} alt={MainIcon} /> </NavLink>
+  </div>
+
+  <div className=" flex items-center justify-center gap-[20px] ml-[260px] " >
+   <Link to={"/auth/login"} > <Button btnStyle="default"> Login </Button> </Link>
+  <Link to={"/auth/signup"} ><Button btnStyle="secondery"> Sign Up </Button></Link>
+ </div>
+
+  <select defaultValue="Pick a font " className="select-ghost ml-[42px] outline-none text-[17px] font-bold ">
+  
+  <option >EN</option>
+  <option >BN</option>
+</select>
+<button> <LogoutButton/> </button>
+
+</div>
+  </>
+) }
       
   </nav>
   )

@@ -18,6 +18,9 @@ import PublicRoute from "./route/PublicRoute";
 import AuthLayout from "./Layout/AuthLayout";
 import ProtectedRoute from "./route/ProtectedRoute";
 import DashBord from "./user/DashBord";
+import PrivacySetting from "./user/PrivacySetting";
+import PersonalDetails from "./user/UserDetails/PersonalDetails";
+import PasswordChange from "./user/UserDetails/PasswordChange";
 
 const router = createBrowserRouter([
 
@@ -52,6 +55,9 @@ const router = createBrowserRouter([
       {path:"/flights", Component: Flights },
       {path:"/bookings", Component: Bookings },
       {path:"/dashboard", Component: DashBord },
+      {path:"/privacysetting", Component: PrivacySetting },
+      {path:"/personaldetails", Component: PersonalDetails },
+      {path:"/passwordchange", Component: PasswordChange },
     ]
   },
 

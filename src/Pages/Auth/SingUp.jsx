@@ -75,7 +75,7 @@ export default function SignUp() {
 
   const handleSignup = (e) => {
     e.preventDefault();
-    signup(formData.email, formData.password, navigate)
+    signup(formData.email, formData.password, formData.confirmPassword, formData.name , formData.phone, formData.birthDate, formData.gender, navigate)
     // const newErrors = validateForm();
     
     // if (Object.keys(newErrors).length === 0) {
