@@ -69,14 +69,14 @@ const SettingsDropdown = () => {
     setIsOpen(false);
   };
 
-  // ✅ Fallback avatar
+  // ✅ Fallback avatar helper
   const getUserPhoto = () => {
-    return (
-      formData.photo ||
-      currentUser?.photoURL ||
-      '/default-avatar.png'
-    );
+    // prefer saved photo, then auth profile, otherwise return default image path
+    return formData.photo || currentUser?.photoURL || '/default-avatar.png';
   };
+
+  // compute once to avoid calling repeatedly in JSX
+  const userPhoto = getUserPhoto();
 
   return (
     <div className="relative inline-block text-left">
@@ -85,14 +85,18 @@ const SettingsDropdown = () => {
         onClick={() => setIsOpen(!isOpen)}
         aria-haspopup="menu"
         aria-expanded={isOpen}
-        className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 focus:ring-2 focus:ring-green-400 transition-colors duration-200"
+        className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 focus:ring-2 focus:ring-green-400 transition-colors duration-200 overflow-hidden"
       >
-        <img
-          className="w-10 h-10 rounded-full object-cover"
-          src={getUserPhoto()}
-          alt="User Avatar"
-          onError={(e) => (e.target.src = '/default-avatar.png')}
-        />
+        {userPhoto && userPhoto !== '/default-avatar.png' ? (
+          <img
+            className="w-10 h-10 rounded-full object-cover"
+            src={userPhoto}
+            alt="User Avatar"
+            onError={(e) => (e.target.src = '/default-avatar.png')}
+          />
+        ) : (
+          <User className="w-6 h-6 text-gray-500" />
+        )}
       </button>
 
       {/* Dropdown */}
@@ -105,27 +109,25 @@ const SettingsDropdown = () => {
             {/* Header */}
             <div className="px-4 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white">
               <div className="flex items-center space-x-3">
-                {/* {
-                  currentUser.photoURL ?
-                    <img className='  w-10 h-10 rounded-full  flex items-center justify-center ' src={currentUser.photoURL} alt="img" />
-                    :
-                    <img
-                      className="w-10 h-10 rounded-full object-cover"
-                      src={getUserPhoto()}
-                      alt="User Avatar"
-                      onError={(e) => (e.target.src = '/default-avatar.png')}
-                    />
-                } */}
-                <img
-                      className="w-10 h-10 rounded-full object-cover"
-                      src={getUserPhoto()}
-                      alt="User Avatar"
-                      onError={(e) => (e.target.src = '/default-avatar.png')}
-                    />
-                    
-                <div>
-                  <p className="font-medium">{formData.Name}</p>
-                  <p className="text-sm text-blue-100">{currentUser.email}</p>
+                {userPhoto && userPhoto !== '/default-avatar.png' ? (
+                  <img
+                    className="w-10 h-10 rounded-full object-cover flex-shrink-0"
+                    src={userPhoto}
+                    alt="User Avatar"
+                    onError={(e) => (e.target.src = '/default-avatar.png')}
+                  />
+                ) : (
+                  <User className="w-8 h-8 text-white flex-shrink-0" />
+                )}
+
+                {/* name/email container allows truncation */}
+                <div className="min-w-0">
+                  <p className="font-medium truncate">
+                    {formData.Name || 'User'}
+                  </p>
+                  <p className="text-sm text-blue-100 truncate">
+                    {currentUser?.email || 'no-email'}
+                  </p>
                 </div>
               </div>
             </div>

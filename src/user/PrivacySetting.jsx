@@ -39,7 +39,7 @@ export default function PrivacySetting() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 md:pt-[120px]  ">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 pt-20 md:pt-[120px]  ">
       <div className="max-w-6xl mx-auto p-6">
         {/* Header */}
         <div className="mb-8">

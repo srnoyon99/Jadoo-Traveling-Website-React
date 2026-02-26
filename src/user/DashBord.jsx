@@ -47,7 +47,7 @@ const DashBord = () => {
   ];
 
   return (
-    <div className="flex h-screen bg-gray-50 md:pt-[120px]">
+    <div className="flex h-screen bg-gray-50 pt-25 md:pt-[120px]">
       {/* Sidebar */}
       <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0 lg:static`}>
         <div className="flex items-center justify-between p-6 border-b">
@@ -80,7 +80,7 @@ const DashBord = () => {
             <button onClick={() => setSidebarOpen(true)} className="lg:hidden">
               <Menu className="w-6 h-6" />
             </button>
-            <h2 className="text-2xl font-semibold text-gray-800">Analytics Overview</h2>
+            <h2 className="text-2xl pl-3 lg:pl-0 font-semibold text-gray-800">Analytics Overview</h2>
             <div className="flex gap-2">
               {['24h', '7d', '30d', '90d'].map((range) => (
                 <button
