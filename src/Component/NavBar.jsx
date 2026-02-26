@@ -40,13 +40,21 @@ const NavBar = () => {
   </>) : (<>
        <div className="navbar container pt-[20px] pb-[20px] ">
   <div className="navbar-start">
-    <div className="dropdown">
-      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" className=" h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
-      </div>
-      <ul
+
+    <div className="drawer block lg:hidden ">
+  <input id="my-drawer-1" type="checkbox" className="drawer-toggle" />
+  <div className="drawer-content">
+    {/* Page content here */}
+    <label htmlFor="my-drawer-1" className="btn drawer-button">
+       <svg xmlns="http://www.w3.org/2000/svg" className=" h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+    </label>
+  </div>
+  <div className="drawer-side">
+    <label htmlFor="my-drawer-1" aria-label="close sidebar" className="drawer-overlay"></label>
+     <ul
         tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow-sm shadow-border-b border-gray-200/50 ">
+        className="menu bg-base-200 min-h-full w-80 p-4 ">
+          <NavLink className=" grid items-center justify-center mt-2 mb-15 border-b-1 text-[17px] text-p " to={"/"} > <img className=" pb-5" src={MainIcon} alt={MainIcon} /> </NavLink>
         <li> <NavLink className= {NavStyle}  to={"/desitnations"} >Desitnations</NavLink></li>
         <li>
           <NavLink className= {NavStyle}  to={"/hotels"} > Hotels </NavLink>
@@ -54,8 +62,10 @@ const NavBar = () => {
         <li><NavLink className= {NavStyle}  to={"/flights"} >Flights</NavLink></li>
         <li> <NavLink className= {NavStyle}  to={"/bookings"} >Bookings</NavLink> </li>
       </ul>
-    </div>
-    <NavLink className=" text-[17px] text-p " to={"/"} > <img src={MainIcon} alt={MainIcon} /> </NavLink>
+  </div>
+</div>
+    
+    <NavLink className=" text-[17px] text-p " to={"/"} > <img className=" h-[55px]  " src={MainIcon} alt={MainIcon} /> </NavLink>
   </div>
   <div className="navbar-center hidden lg:flex ">
     <ul className="menu menu-horizontal px-1 space-x-[55px] ">
@@ -74,7 +84,7 @@ const NavBar = () => {
     </div>
 
     <div className=" flex items-center gap-[20px] " >
-    <button> <TheamButton/> </button>
+    
     <button className=" z-40 " > <SettingsDropdown/> </button>
   </div>
   </div>

@@ -21,6 +21,9 @@ import DashBord from "./user/DashBord";
 import PrivacySetting from "./user/PrivacySetting";
 import PersonalDetails from "./user/UserDetails/PersonalDetails";
 import PasswordChange from "./user/UserDetails/PasswordChange";
+import SettingsDropdown from "./ComponentPages/SettingsDropdown";
+import FavoriteBooking from "./ComponentPages/FavoriteBooking";
+import Vehicle from "./ComponentPages/Vehicle";
 
 const router = createBrowserRouter([
 
@@ -58,6 +61,9 @@ const router = createBrowserRouter([
       {path:"/privacysetting", Component: PrivacySetting },
       {path:"/personaldetails", Component: PersonalDetails },
       {path:"/passwordchange", Component: PasswordChange },
+      {path:"/settingsdropdown", Component: SettingsDropdown },
+      {path:"/favoritebooking", Component: FavoriteBooking },
+      {path:"/vehicle", Component: Vehicle },
     ]
   },
 

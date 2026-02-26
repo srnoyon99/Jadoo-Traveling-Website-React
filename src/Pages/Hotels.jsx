@@ -1,18 +1,9 @@
 import React, { useState } from 'react';
 import { Heart, Star, ArrowRight, ChevronRight, Car, Coffee, Wifi, CheckCircle } from 'lucide-react';
+import { useFavorites } from '../Hooks/useFavorites';
 
 const Hotels = () => {
-  const [favorites, setFavorites] = useState(new Set());
-
-  const toggleFavorite = (id) => {
-    const newFavorites = new Set(favorites);
-    if (newFavorites.has(id)) {
-      newFavorites.delete(id);
-    } else {
-      newFavorites.add(id);
-    }
-    setFavorites(newFavorites);
-  };
+  const { favorites, toggleFavorite, isFavorite } = useFavorites();
 
   const propertyTypes = [
     {
@@ -154,13 +145,13 @@ const Hotels = () => {
     }
   ];
 
-  const FavoriteButton = ({ id }) => (
+  const FavoriteButton = ({ hotel }) => (
     <button
-      onClick={() => toggleFavorite(id)}
+      onClick={() => toggleFavorite(hotel)}
       className="absolute top-3 right-3 p-2 rounded-full bg-white/80 hover:bg-white transition-all duration-200 shadow-sm"
     >
       <Heart 
-        className={`w-5 h-5 ${favorites.has(id) ? 'fill-red-500 text-red-500' : 'text-gray-600 hover:text-red-500'}`} 
+        className={`w-5 h-5 ${isFavorite(hotel.id) ? 'fill-red-500 text-red-500' : 'text-gray-600 hover:text-red-500'}`} 
       />
     </button>
   );
@@ -264,7 +255,7 @@ const Hotels = () => {
                     alt={hotel.name}
                     className="w-full h-48 object-cover"
                   />
-                  <FavoriteButton id={hotel.id} />
+                  <FavoriteButton hotel={hotel} />
                   {hotel.badge && (
                     <div className="absolute bottom-3 left-3 bg-blue-600 text-white px-2 py-1 rounded text-xs font-medium">
                       {hotel.badge}
@@ -300,7 +291,7 @@ const Hotels = () => {
                     alt={property.name}
                     className="w-full h-48 object-cover"
                   />
-                  <FavoriteButton id={property.id} />
+                  <FavoriteButton hotel={property} />
                 </div>
                 <div className="p-4">
                   <h3 className="font-medium text-gray-900 mb-1">{property.name}</h3>
@@ -335,7 +326,7 @@ const Hotels = () => {
                     alt={home.name}
                     className="w-full h-48 object-cover"
                   />
-                  <FavoriteButton id={home.id} />
+                  <FavoriteButton hotel={home} />
                 </div>
                 <div className="p-4">
                   <h3 className="font-medium text-gray-900 mb-1">{home.name}</h3>

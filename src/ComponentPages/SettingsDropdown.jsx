@@ -56,12 +56,9 @@ const SettingsDropdown = () => {
   const menuItems = [
     { icon: Settings, label: 'Settings & Privacy', link: '/privacysetting' },
     { icon: BarChart3, label: 'Professional Dashboard', link: '/dashboard' },
-    { icon: Gift, label: 'Special Offers', link: '/' },
-    { icon: Calendar, label: 'Special Events', link: '/' },
-    { icon: Car, label: 'Vehicle Finds', link: '/' },
-    { icon: Bookmark, label: 'Saved Booking', link: '/' },
-    { icon: Heart, label: 'Favorite Booking', link: '/' },
-    { icon: Clock, label: 'Previous Booking', link: '/' },
+    { icon: Calendar, label: 'Special Events', link: '/localevents' },
+    { icon: Heart, label: 'Favorite Booking', link: '/favoritebooking' },
+    { icon: Car, label: 'Vehicle Finds', link: '/vehicle' },
   ];
 
   const handleLogout = () => {
