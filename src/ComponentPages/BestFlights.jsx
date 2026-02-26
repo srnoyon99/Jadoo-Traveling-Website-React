@@ -31,9 +31,9 @@ const BestFlight = () => {
       <NavBar/>
     </div>
 
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 p-6 md:pt-[130px] ">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 p-6 pt-25 md:pt-[130px] ">
       <header className="mb-10 text-center">
-        <h1 className="text-[84px] leading-12 font-bold text-blue-700 mt-10"> Best Flight Airlines</h1>
+        <h1 className=" text-[45px] lg:text-[84px] leading-12 font-bold text-blue-700 mt-10"> Best Flight Airlines</h1>
         <p className="text-gray-600 text-[20px] mt-15">Explore top airlines and book your next journey with ease</p>
       </header>
 

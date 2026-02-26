@@ -31,7 +31,7 @@ const Testimonials = () => {
      return (
           <section>
 
-               <div className=" container grid grid-cols-2 gap-[124px] " >
+               <div className=" container grid  lg:grid-cols-2  lg:gap-[124px] " >
 
                     <div className=" top-0 " >
                          <p className=" text-[18px] text-text-crl font-semibold ">TESTIMONIALS</p>
@@ -39,8 +39,8 @@ const Testimonials = () => {
                     </div>
 
                     <div>
-
-                         <div className="testimonial_slider">
+                    {/* Desktop */}
+                         <div className="testimonial_slider hidden lg:block">
                               <Splide
                                    options={{
                                         direction: "ttb",
@@ -60,6 +60,31 @@ const Testimonials = () => {
                                    })}
                               </Splide>
                          </div>
+                    {/* Dasktop */}
+
+                    {/* Mobile */}
+                    <div className="testimonial_slider mt-8 lg:hidden">
+                              <Splide
+                                   options={{
+                                        direction: "ttb",
+                                        height: "356px",
+                                        gap: "30px",
+                                        // wheel: true,
+                                   }}
+                              >
+                                   {TestimonialData?.map((testimonial) => {
+                                        return (
+                                             <SplideSlide key={testimonial.id}>
+                                                  <div className="p-10 ">
+                                                       <TestimonialsCard testimonial={testimonial} />
+                                                  </div>
+                                             </SplideSlide>
+                                        );
+                                   })}
+                              </Splide>
+                         </div>
+                    {/* Mobile */}
+
                     </div>
 
                </div>

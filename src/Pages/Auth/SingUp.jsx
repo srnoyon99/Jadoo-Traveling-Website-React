@@ -120,7 +120,7 @@ export default function SignUp() {
       </div>
       <div className="bg-white/95 backdrop-blur-lg rounded-2xl shadow-2xl border border-white/20 w-full max-w-4xl p-16 relative z-10" style={{width: '800px'}}>
         <div className="text-center mb-8">
-          <h1 className=' translate-x-[278px] translate-y-[-25px] ' > <Link to={"/"} ><img src={MainIcon} alt="logo" /></Link> </h1>
+          <h1 className=' grid justify-center translate-y-[-25px] ' > <Link to={"/"} ><img src={MainIcon} alt="logo" /></Link> </h1>
           <h2 className="text-3xl font-bold text-gray-800 mb-2">Create Account</h2>
           <p className="text-gray-600">Join us today and get started</p>
         </div>

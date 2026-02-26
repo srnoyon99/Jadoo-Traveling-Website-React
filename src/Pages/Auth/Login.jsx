@@ -46,21 +46,23 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen  grid grid-cols-2 items-center ">
+    <div className="min-h-screen grid grid-cols-1 lg:grid-cols-2 items-center justify-center">
 
-      <div className=" absolute top-8 translate-x-[345%] flex items-center justify-center z-50">
-        <Link to={"/"} > <img className=' h-[70px] ' src={MainIcon} alt={MainIcon} /> </Link>
+      <div className="absolute top-4 left-4 lg:left-auto lg:top-8 lg:translate-x-[350%] flex items-center justify-center z-50">
+        <Link to="/">
+          <img className="h-[50px] lg:h-[70px] hidden lg:block " src={MainIcon} alt="logo" />
+        </Link>
       </div>
 
-      <div className='  login_bg ' >
+      <div className='login_bg hidden lg:block'>
 
-        <div className=' mb-[-230px] ' >
-          <img className='w-[1318px] h-[1030px]  ' src={TravellerBgLogin} alt="bg" />
+        <div className='mb-[-230px]'>
+          <img className='max-w-full h-auto lg:w-[1318px] lg:h-[1030px]' src={TravellerBgLogin} alt="bg" />
         </div>
 
         <div >
-          <div className=' absolute translate-y-[-600px] z-[1] ' >
-            <img className=' w-[783.87px] h-[764px] z-[1] ' src={TravellerLogin} alt="login" />
+          <div className='absolute translate-y-[-600px] z-[1]'>
+            <img className='max-w-full h-auto lg:w-[783.87px] lg:h-[764px] z-[1]' src={TravellerLogin} alt="login" />
           </div>
 
           <div className='plain1 absolute' >
@@ -74,7 +76,7 @@ export default function Login() {
 
       </div>
 
-      <div className=" login_main relative bg-gray-900/80 backdrop-blur-xl rounded-3xl shadow-2xl w-full max-w-lg p-10 border border-gray-700/50">
+      <div className=" relative bg-gray-900/80 backdrop-blur-xl rounded-3xl shadow-2xl w-full max-w-md lg:max-w-lg p-6 md:p-8 lg:p-10 border border-gray-700/50 mx-auto">
         {/* Header */}
         <div className="text-center">
           <h1 className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-200 to-purple-200 mb-4 tracking-widest leading-tight px-4">

@@ -322,11 +322,11 @@ const LocalEvents = () => {
 
   return (
      <>
-     <div className='md:pb-[130px]' >
+     <div className='' >
           <NavBar/>
      </div>
 
-     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900  ">
+     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 pt-15 md:pb-[130px]  ">
 
       {/* Hero Section */}
       <section className="py-20 text-center text-white  ">

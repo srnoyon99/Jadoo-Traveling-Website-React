@@ -104,7 +104,7 @@ button {
      background-position: center;
      background-repeat: no-repeat;
      background-size: cover;
-     padding: 80px 156px;
+     padding-bottom: 100px;
 }
 
 .destination_image {
@@ -120,11 +120,23 @@ button {
 }
 
 .login_bg {
-  transform: translate(-37px,-80px);
+  /* shown on large screens only; no transform on small devices */
+  transform: none;
 }
 
 .login_main {
+  /* center by default; adjustments only at lg */
+  transform: none;
+}
+
+@media (min-width: 1024px) {
+  .login_bg {
+    transform: translate(-37px,-80px);
+  }
+
+  .login_main {
     transform: translate(335px,30px);
+  }
 }
 
 .plain1 {

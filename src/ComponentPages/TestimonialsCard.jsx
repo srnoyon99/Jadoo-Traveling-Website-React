@@ -2,7 +2,7 @@ import { TestimonialsCeo1, TestimonialsCeo2, TestimonialsCeo3 } from "../ImportI
 
 const TestimonialsCard = ({testimonial}) => {
   return (
-    <div className=" grid grid-cols-1 gap-3 relative rounded-[10px] pt-10 pr-16 pb-8.5 pl-7 shadow-testimonialCard w-[504px] h-[245px] ">
+    <div className=" grid grid-cols-1 gap-3 relative rounded-[10px] pt-10 pr-16 pb-8.5 pl-7 shadow-testimonialCard  lg:w-[504px] h-[245px] ">
 
      <div className=" absolute size-[68px] rounded-full overflow-hidden top-0 left-0 translate-[-50%] ">
           <img src={testimonial?.img ? testimonial.img : TestimonialsCeo1 } alt="images" />

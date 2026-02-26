@@ -38,7 +38,7 @@ const NavBar = () => {
   { !SocialMedia ? (<>
    
   </>) : (<>
-       <div className="navbar container pt-[35px] pb-[22px] ">
+       <div className="navbar container pt-[20px] pb-[20px] ">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

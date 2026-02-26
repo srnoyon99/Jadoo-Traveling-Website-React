@@ -109,7 +109,7 @@ const Flights = () => {
   ];
 
   return (
-    <div className="min-h-screen md:pt-[120px] ">
+    <div className="min-h-screen pt-30 md:pt-[120px] ">
       {/* Hero Section */}
       <div className="relative min-h-screen flex flex-col items-center justify-center px-4">
         <div className="absolute inset-0 airbg bg-opacity-30"></div>

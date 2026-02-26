@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut, GoogleAuthProvider, FacebookAuthProvider, signInAnonymously, sendPasswordResetEmail, updateProfile, } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut, GoogleAuthProvider, FacebookAuthProvider, signInAnonymously, sendPasswordResetEmail, updateProfile, updatePassword, } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../service/firebase/firebase.config";
 
@@ -14,6 +14,7 @@ export const AuthContext = createContext({
      getUserInfo: () => { },
      updateUserInfo: () => { },
      resetPassword: () => { },
+     ChangePassword: () => {},
 })
 
 const AuthProvider = ({ children }) => {
@@ -134,16 +135,16 @@ const AuthProvider = ({ children }) => {
                });
      }
 
-     const updateUserInfo = ( name, photo ) => {
+     const updateUserInfo = (name, photo) => {
 
           updateProfile(auth.currentUser, {
-               displayName: name , photoURL: photo
+               displayName: name, photoURL: photo
           }).then(() => {
                // Profile updated!
                console.log("User Update Done");
           }).catch((error) => {
                // An error occurred
-               console.log( error.message );
+               console.log(error.message);
           });
      }
 
@@ -179,7 +180,20 @@ const AuthProvider = ({ children }) => {
                });
      }
 
-     const Value = { currentUser, loading, signup, login, logout, gmailLogin, facebookLogin, anonymouslyLogin, getUserInfo, resetPassword, updateUserInfo }
+     const ChangePassword = (email) => {
+
+          const user = auth.currentUser;
+          const newPassword = getASecureRandomPassword();
+
+          updatePassword(user, newPassword).then(() => {
+               // Update successful.
+          }).catch((error) => {
+               // An error ocurred
+               // ...
+          });
+     }
+
+     const Value = { currentUser, loading, signup, login, logout, gmailLogin, facebookLogin, anonymouslyLogin, getUserInfo, resetPassword, updateUserInfo, ChangePassword }
 
      return (
           <AuthContext.Provider value={Value} >

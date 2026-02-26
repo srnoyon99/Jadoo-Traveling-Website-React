@@ -10,12 +10,12 @@ const TopSell = () => {
                     <h1 className="font-Volkhob font-bold text-[50px] mb-[60px]">Top Destinations</h1>
                     
                     {/* Fixed Grid */}
-                    <div className="grid grid-cols-[315px_315px_315px]  justify-between gap-9">
+                    <div className="grid  lg:grid-cols-[315px_315px_315px]  justify-between gap-9">
 
                         {/* Card 1 */}
-                        <div className="destination_cards relative z-[1] cursor-pointer h-[457px] hover:scale-110 overflow-hidden shadow-destinationCard transition-all ease-linear duration-200 rounded-[36px] flex flex-col bg-white ">
+                        <div className="destination_cards relative z-[1] cursor-pointer h-[457px] lg:hover:scale-110 overflow-hidden shadow-destinationCard transition-all ease-linear duration-200 rounded-[36px] flex flex-col bg-white ">
                             <div className=" h-[320px] overflow-hidden mb-7">
-                            <img className="w-full h-full object-cover" src={TopRome} alt="Full Europe"/>
+                            <img className="w-full h-full object-cover " src={TopRome} alt="Full Europe"/>
                             </div>
                             <div className="destination_text z-1  px-5 pb-7 flex-1">
                                 <div className="flex items-start justify-between mb-3">
@@ -29,12 +29,12 @@ const TopSell = () => {
                             </div>
                         </div>
 
-                        <div className="destination_images absolute " >
+                        <div className="destination_images absolute hidden lg:block " >
                             <img  src={TopRomeBg} alt="top europ " />
                         </div>
 
                         {/* Card 2 */}
-                        <div className="destination_card cursor-pointer h-[457px] hover:scale-110 overflow-hidden shadow-destinationCard transition-all ease-linear duration-200 rounded-[36px] flex flex-col">
+                        <div className="destination_card cursor-pointer h-[457px] lg:hover:scale-110 overflow-hidden shadow-destinationCard transition-all ease-linear duration-200 rounded-[36px] flex flex-col">
                             <div className=" h-[320px] overflow-hidden mb-7">
                                 <img className="w-full h-full object-cover" src={TopLondon} alt="London, England" />
                             </div>
@@ -51,7 +51,7 @@ const TopSell = () => {
                         </div>
 
                         {/* Card 3 */}
-                        <div className="destination_card relative z-[1] cursor-pointer h-[457px] hover:scale-110 overflow-hidden shadow-destinationCard transition-all ease-linear duration-200 rounded-[36px] flex flex-col bg-white ">
+                        <div className="destination_card relative z-[1] cursor-pointer h-[457px] lg:hover:scale-110 overflow-hidden shadow-destinationCard transition-all ease-linear duration-200 rounded-[36px] flex flex-col bg-white ">
                             <div className=" h-[320px] overflow-hidden mb-7">
                             <img className="w-full h-full object-cover" src={TopEurope} alt="Full Europe"/>
                             </div>
@@ -67,7 +67,7 @@ const TopSell = () => {
                             </div>
                         </div>
 
-                        <div className="destination_image absolute " >
+                        <div className="destination_image absolute hidden lg:block " >
                             <img  src={TopEuropeBg} alt="top europ " />
                         </div>
 

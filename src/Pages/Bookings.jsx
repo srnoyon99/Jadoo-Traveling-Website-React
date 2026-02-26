@@ -42,7 +42,7 @@ const BookingWebsite = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white py-10 md:pt-[140px] ">
+    <div className="min-h-screen bg-white py-10 pt-30 md:pt-[120px] ">
       {/* Header */}
       <header className="bg-blue-700 text-white">
         <div className="max-w-7xl mx-auto px-4 py-8">
