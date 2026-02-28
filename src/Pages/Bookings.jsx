@@ -21,7 +21,7 @@ const BookingWebsite = () => {
     {
       name: 'Dhaka',
       country: 'Bangladesh',
-      image: 'https://media.guruwalk.com/vd831isbmicjx4j6cu0gzsb9s2nw'
+      image: 'https://www.tataneu.com/pages/travel/_next/image?url=https%3A%2F%2Fd1msew97rp2nin.cloudfront.net%2Fprodin%2Ftntravel%2Fblogimages%2FLucknow-d44a94e5-0ec5-4b0e-8a9b-be5856267f2f.webp&w=3840&q=75'
     },
     {
       name: 'Singapore',

@@ -457,11 +457,11 @@ const Flights = () => {
                       )}
                     </div>
                     {deal.discount && (
-                      <div className="inline-block bg-red-500 text-white text-xs px-2 py-1 rounded mb-2">
+                      <div className="inline-block bg-red-500 text-white text-xs px-2 py-1 rounded mr-2 lg:mr-0 mb-2">
                         {deal.discount}
                       </div>
                     )}
-                    <button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors">
+                    <button className=" w-fit cursor-pointer mt-5 lg:w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors">
                       Search
                     </button>
                   </div>

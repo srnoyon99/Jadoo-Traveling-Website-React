@@ -8,7 +8,7 @@ const BannerServiceCard = ({service}) => {
 
       <div className=" flex flex-col items-center mb-[70px]  " >
         <p className="font-semibold text-[14] lg:text-[18px] text-p  " >CATEGORY</p>
-        <h1 className=" text-4xl lg:text-[50px] font-bold text-h1 text-nowrap leading-2 mt-[25px] " >We Offer Best Services</h1>
+        <h1 className=" text-[32px] lg:text-[50px] font-bold text-h1 text-nowrap leading-2 mt-[25px] " >We Offer Best Services</h1>
       </div>
     
     {/* Dasktop */}
