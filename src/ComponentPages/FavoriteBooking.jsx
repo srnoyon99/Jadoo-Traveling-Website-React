@@ -3,6 +3,7 @@ import { Heart, MapPin, Star, Trash2, BookOpen } from 'lucide-react';
 import { useFavorites } from '../Hooks/useFavorites';
 import NavBar from '../Component/NavBar';
 import Footer from '../Component/Footer';
+import { Link } from 'react-router';
 
 const FavoriteBooking = () => {
   const { favorites, removeFavorite, clearFavorites } = useFavorites();
@@ -56,13 +57,13 @@ const FavoriteBooking = () => {
               <p className="text-gray-600 text-sm md:text-base max-w-md mx-auto mb-8">
                 Click the heart icon on hotels to save them here. Build your list of favorite destinations for your next adventure!
               </p>
-              <a
-                href="/hotels"
+              <Link
+                to="/hotels"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 font-medium"
               >
                 <BookOpen className="w-5 h-5" />
                 Explore Hotels
-              </a>
+              </Link>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
