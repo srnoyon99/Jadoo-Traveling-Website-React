@@ -8,7 +8,7 @@ const LogoutButton = () => {
   return (
     <button
       onClick={logout}
-      className="flex items-center space-x-2 px-4 py-2 rounded-full cursor-pointer bg-red-500 hover:bg-red-600 text-white font-medium transition-colors duration-200"
+      className="flex items-center space-x-2 px-4 py-2 ml-1 lg:ml-0 rounded-full cursor-pointer bg-red-500 hover:bg-red-600 text-white font-medium transition-colors duration-200"
     >
       <LogOut className="w-5 h-5 " />
     </button>

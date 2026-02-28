@@ -95,7 +95,7 @@ const NavBar = () => {
   { !Anonymou ? (<>
   </>) : (
   <>
-  <div className="navbar space-x-15 container pt-[35px] pb-[22px] ">
+  <div className="navbar container  lg:space-x-15  pt-[35px] pb-[22px] ">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -105,12 +105,12 @@ const NavBar = () => {
     <NavLink className=" text-[17px] text-p " to={"/"} > <img src={MainIcon} alt={MainIcon} /> </NavLink>
   </div>
 
-  <div className=" flex items-center justify-center gap-[20px] ml-[260px] " >
+  <div className=" flex items-center justify-center space-x-2 lg:space-x-0 lg:gap-[20px]  lg:ml-[260px] " >
    <Link to={"/auth/login"} > <Button btnStyle="default"> Login </Button> </Link>
   <Link to={"/auth/signup"} ><Button btnStyle="secondery"> Sign Up </Button></Link>
  </div>
 
-  <select defaultValue="Pick a font " className="select-ghost ml-[42px] outline-none text-[17px] font-bold ">
+  <select defaultValue="Pick a font " className="select-ghost ml-[42px] hidden lg:block outline-none text-[17px] font-bold ">
   
   <option >EN</option>
   <option >BN</option>
